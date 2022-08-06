@@ -3,9 +3,9 @@ This is my new step to new friendly world. I started learning the Flask and spec
 package.
 
 ## Database creation
-to create database
+to create database go to the python shell interactive
 
 ```
 from app import db
-db.create_db()
+db.create_all()
 ```
