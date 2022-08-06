@@ -1,4 +1,3 @@
-from celery_config import make_celery
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api, marshal_with, fields, reqparse
@@ -10,9 +9,11 @@ parser = reqparse.RequestParser()
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 app.config.update(CELERY_CONFIG={
     'broker_url': 'redis://prepare_4_redis:6379',
+    'BROKER_URL': 'redis://prepare_4_redis:6379',
     'result_backend': 'redis://prepare_4_redis:6379',
+    'RESULT_BACKEND': 'redis://prepare_4_redis:6379',
 })
-celery = make_celery(app)
+
 
 
 db = SQLAlchemy(app)

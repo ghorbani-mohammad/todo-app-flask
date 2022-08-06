@@ -17,7 +17,7 @@ services:
   prepare_4_worker:
     container_name: prepare_4_worker
     build: .
-    command: ["celery", "-A", "celery", "worker"]
+    command: ["celery", "-A", "celery_app", "worker"]
     depends_on:
       - prepare_4_flask
       - prepare_4_redis
