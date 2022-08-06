@@ -1,3 +1,4 @@
+from celery_config import make_celery
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api, marshal_with, fields, reqparse
@@ -7,6 +8,14 @@ api = Api(app)
 parser = reqparse.RequestParser()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
+app.config['broker_url'] = 'redis://prepare_4_redis:6379'
+app.config.update(CELERY_CONFIG={
+    'broker_url': 'redis://prepare_4_redis:6379',
+    'result_backend': 'redis://prepare_4_redis:6379',
+})
+celery = make_celery(app)
+
+
 db = SQLAlchemy(app)
 
 task_fields = {
@@ -61,6 +70,7 @@ class Item(Resource):
 
 api.add_resource(Items, '/')
 api.add_resource(Item, '/<int:pk>/')
+
 
 
 if __name__ == '__main__':
