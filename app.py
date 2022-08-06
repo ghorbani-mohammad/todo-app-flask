@@ -25,6 +25,11 @@ class Item(Resource):
     def get(self, pk):
         return fakeDatabase[pk]
 
+    def put(self, pk):
+        data = request.json
+        fakeDatabase[pk]['name'] = data['name']
+        return fakeDatabase
+
 api.add_resource(Items, '/')
 api.add_resource(Item, '/<int:pk>')
 
