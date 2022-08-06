@@ -8,7 +8,6 @@ api = Api(app)
 parser = reqparse.RequestParser()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
-app.config['broker_url'] = 'redis://prepare_4_redis:6379'
 app.config.update(CELERY_CONFIG={
     'broker_url': 'redis://prepare_4_redis:6379',
     'result_backend': 'redis://prepare_4_redis:6379',
