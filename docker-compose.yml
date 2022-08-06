@@ -1,0 +1,16 @@
+services:
+  prepare_4_flask:
+    container_name: prepare_4_flask
+    build: .
+    command: ['python', '/app/app.py']
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
+
+  prepare_4_redis:
+    container_name: prepare_4_redis
+    image: redis:7.0.4-alpine
+  
