@@ -1,4 +1,13 @@
-# 0.1.0 (2022-08-06)
+# [0.2.0](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.1.0...v0.2.0) (2022-08-06)
+
+
+### Features
+
+* use RequestParser ([3b5f455](https://github.com/ghorbani-mohammad/preparing-4/commit/3b5f455eb07b2a0229af05b3cda2285bd9911d44))
+
+
+
+# [0.1.0](https://github.com/ghorbani-mohammad/preparing-4/compare/3ef6620ea57e14b6612de4d168d12818fa19ad1e...v0.1.0) (2022-08-06)
 
 
 ### Features
