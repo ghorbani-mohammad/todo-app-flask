@@ -2,7 +2,7 @@ services:
   prepare_4_flask:
     container_name: prepare_4_flask
     build: .
-    command: ["flask", "run", "--host=0.0.0.0"]
+    command: ["sh", "-c", "cd /app/app && flask run --host=0.0.0.0"]
     volumes:
       - .:/app
     env_file:
@@ -17,7 +17,9 @@ services:
   prepare_4_worker:
     container_name: prepare_4_worker
     build: .
-    command: ["celery", "-A", "celery_app", "worker"]
+    volumes:
+      - .:/app
+    command: ["sh", "-c", "cd /app/app && celery -A celery_app.celery worker -l info"]
     depends_on:
       - prepare_4_flask
       - prepare_4_redis

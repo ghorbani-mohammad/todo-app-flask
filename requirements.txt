@@ -2,3 +2,4 @@ celery
 flask
 flask_sqlalchemy
 flask-restful
+redis
