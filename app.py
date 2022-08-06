@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
@@ -13,6 +13,13 @@ fakeDatabase={
 class Items(Resource):
     def get(self):
         return fakeDatabase
+    
+    def post(self):
+        data = request.json
+        item_id = len(fakeDatabase.keys()) + 1
+        fakeDatabase[item_id] = {'name': data['name']}
+        return fakeDatabase
+
 
 class Item(Resource):
     def get(self, pk):
