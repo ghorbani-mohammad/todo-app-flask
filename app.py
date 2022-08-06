@@ -1,9 +1,10 @@
 from flask import Flask, request
-from flask_restful import Resource, Api, marshal_with, fields
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api, marshal_with, fields, reqparse
 
 app = Flask(__name__)
 api = Api(app)
+parser = reqparse.RequestParser()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 db = SQLAlchemy(app)
@@ -28,9 +29,10 @@ class Items(Resource):
     
     @marshal_with(task_fields)
     def post(self):
-        data = request.json
-        task = Task(name=data['name'])
-        db. session.add(task)
+        parser.add_argument('name', type=str, help='name of todo')
+        args = parser.parse_args(strict=True)
+        task = Task(name=args['name'])
+        db.session.add(task)
         db.session.commit()
         return task
 
