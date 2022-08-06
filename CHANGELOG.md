@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.2.0...v0.3.0) (2022-08-06)
+
+
+### Features
+
+* dockerize project ([1082caa](https://github.com/ghorbani-mohammad/preparing-4/commit/1082caa00f00a6b111e2e620809aa35c474aad10))
+
+
+
 # [0.2.0](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.1.0...v0.2.0) (2022-08-06)
 
 
