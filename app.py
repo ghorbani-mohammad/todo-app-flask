@@ -31,7 +31,7 @@ class Item(Resource):
         return fakeDatabase
 
 api.add_resource(Items, '/')
-api.add_resource(Item, '/<int:pk>')
+api.add_resource(Item, '/<int:pk>/')
 
 
 if __name__ == '__main__':
