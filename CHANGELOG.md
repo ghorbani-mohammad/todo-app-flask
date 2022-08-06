@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.3.1...v0.4.0) (2022-08-06)
+
+
+### Features
+
+* add celery worker ([6a18d46](https://github.com/ghorbani-mohammad/preparing-4/commit/6a18d461bd6558491a5411230f65d4fc0cb4b51b))
+
+
+
 ## [0.3.1](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.3.0...v0.3.1) (2022-08-06)
 
 
