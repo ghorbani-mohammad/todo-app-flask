@@ -8,3 +8,4 @@ to create database
 ```
 from app import db
 db.create_db()
+```
