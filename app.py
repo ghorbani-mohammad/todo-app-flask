@@ -1,38 +1,60 @@
 from flask import Flask, request
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, marshal_with, fields
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 api = Api(app)
 
-fakeDatabase={
-    1:{'name':'Clear car'},
-    2:{'name':'Write blog'},
-    3:{'name':'Start stream'}
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
+db = SQLAlchemy(app)
+
+task_fields = {
+    'id': fields.Integer,
+    'name': fields.String
 }
 
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+
+    def __repr__(self):
+        return self.name
+
+
 class Items(Resource):
+    @marshal_with(task_fields)
     def get(self):
-        return fakeDatabase
+        return Task.query.all()
     
+    @marshal_with(task_fields)
     def post(self):
         data = request.json
-        item_id = len(fakeDatabase.keys()) + 1
-        fakeDatabase[item_id] = {'name': data['name']}
-        return fakeDatabase
+        task = Task(name=data['name'])
+        db. session.add(task)
+        db.session.commit()
+        return task
 
 
 class Item(Resource):
+    @marshal_with(task_fields)
     def get(self, pk):
-        return fakeDatabase[pk]
+        return Task.query.filter_by(id=pk).first()
 
+    @marshal_with(task_fields)
     def put(self, pk):
         data = request.json
-        fakeDatabase[pk]['name'] = data['name']
-        return fakeDatabase
+        task = Task.query.filter_by(id=pk).first()
+        task.name = data['name']
+        db.session.commit()
+        return task
     
+    @marshal_with(task_fields)
     def delete(self, pk):
-        del fakeDatabase[pk]
-        return fakeDatabase
+        task = Task.query.filter_by(id=pk).first()
+        db.session.delete(task)
+        db.session.commit()
+        tasks = Task.query.all()
+        return tasks
 
 api.add_resource(Items, '/')
 api.add_resource(Item, '/<int:pk>/')
