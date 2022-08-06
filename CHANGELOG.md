@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.3.0...v0.3.1) (2022-08-06)
+
+
+### Bug Fixes
+
+* docker run command ([def1b29](https://github.com/ghorbani-mohammad/preparing-4/commit/def1b2930ed640ee2675c34d105fdd9a25c53b99))
+
+
+
 # [0.3.0](https://github.com/ghorbani-mohammad/preparing-4/compare/v0.2.0...v0.3.0) (2022-08-06)
 
 
