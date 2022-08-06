@@ -4,19 +4,9 @@ from flask_restful import Resource, Api, marshal_with, fields, reqparse
 
 app = Flask(__name__)
 api = Api(app)
-parser = reqparse.RequestParser()
-
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
-app.config.update(CELERY_CONFIG={
-    'broker_url': 'redis://prepare_4_redis:6379',
-    'BROKER_URL': 'redis://prepare_4_redis:6379',
-    'result_backend': 'redis://prepare_4_redis:6379',
-    'RESULT_BACKEND': 'redis://prepare_4_redis:6379',
-})
-
-
-
 db = SQLAlchemy(app)
+parser = reqparse.RequestParser()
 
 task_fields = {
     'id': fields.Integer,

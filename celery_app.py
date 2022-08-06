@@ -14,5 +14,8 @@ def make_celery(app):
     celery.Task = ContextTask
     return celery
 
-
+app.config.update(CELERY_CONFIG={
+    'broker_url': 'redis://prepare_4_redis:6379',
+    'result_backend': 'redis://prepare_4_redis:6379',
+})
 celery = make_celery(app)
