@@ -9,4 +9,16 @@ services:
       - .env
     ports:
       - 5000:5000
+
+  prepare_4_redis:
+    container_name: prepare_4_redis
+    image: redis:7.0.4-alpine
+  
+  prepare_4_worker:
+    container_name: prepare_4_worker
+    build: .
+    command: ["celery", "-A", "celery", "worker"]
+    depends_on:
+      - prepare_4_flask
+      - prepare_4_redis
   
