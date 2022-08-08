@@ -61,7 +61,8 @@ class Item(Resource):
 class Profiles(Resource):
     def get(self):
         from .tasks import add_together
-        return add_together.delay(5,3)
+        add_together.delay(5,3)
+        return {}
 
 api.add_resource(Items, '/item/')
 api.add_resource(Item, '/item/<int:pk>/')
