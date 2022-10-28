@@ -4,14 +4,11 @@ from flask_restful import Resource, Api, marshal_with, fields, reqparse
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todo.db"
 db = SQLAlchemy(app)
 parser = reqparse.RequestParser()
 
-task_fields = {
-    'id': fields.Integer,
-    'name': fields.String
-}
+task_fields = {"id": fields.Integer, "name": fields.String}
 
 
 class Task(db.Model):
@@ -26,12 +23,12 @@ class Items(Resource):
     @marshal_with(task_fields)
     def get(self):
         return Task.query.all()
-    
+
     @marshal_with(task_fields)
     def post(self):
-        parser.add_argument('name', type=str, help='name of todo')
+        parser.add_argument("name", type=str, help="name of todo")
         args = parser.parse_args(strict=True)
-        task = Task(name=args['name'])
+        task = Task(name=args["name"])
         db.session.add(task)
         db.session.commit()
         return task
@@ -46,10 +43,10 @@ class Item(Resource):
     def put(self, pk):
         data = request.json
         task = Task.query.filter_by(id=pk).first()
-        task.name = data['name']
+        task.name = data["name"]
         db.session.commit()
         return task
-    
+
     @marshal_with(task_fields)
     def delete(self, pk):
         task = Task.query.filter_by(id=pk).first()
@@ -58,17 +55,19 @@ class Item(Resource):
         tasks = Task.query.all()
         return tasks
 
+
 class Profiles(Resource):
     def get(self):
         from .tasks import add_together
-        add_together.delay(5,3)
+
+        add_together.delay(5, 3)
         return {}
 
-api.add_resource(Items, '/item/')
-api.add_resource(Item, '/item/<int:pk>/')
-api.add_resource(Profiles, '/profile/')
+
+api.add_resource(Items, "/item/")
+api.add_resource(Item, "/item/<int:pk>/")
+api.add_resource(Profiles, "/profile/")
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
