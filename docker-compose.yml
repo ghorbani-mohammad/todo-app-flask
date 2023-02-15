@@ -2,7 +2,7 @@ services:
   todo_api:
     container_name: todo_api
     build: .
-    command: ["sh", "-c", "cd /app/app && flask run --host=0.0.0.0"]
+    command: ["sh", "-c", "cd /app/todo && flask run --host=0.0.0.0"]
     volumes:
       - .:/app
     env_file:
