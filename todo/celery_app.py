@@ -1,4 +1,4 @@
-from .app import app
+from todo.app import app
 from celery import Celery
 
 
