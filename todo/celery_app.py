@@ -1,12 +1,12 @@
-from todo.app import app
+from .app import app
 from celery import Celery
 
 
 def make_celery(app):
     celery = Celery(app.import_name)
     celery.conf.update(app.config["CELERY_CONFIG"])
-    celery.conf.broker_url = "redis://prepare_4_redis:6379"
-    celery.conf.result_backend = "redis://prepare_4_redis:6379"
+    celery.conf.broker_url = "redis://todo_redis:6379"
+    celery.conf.result_backend = "redis://todo_redis:6379"
 
     class ContextTask(celery.Task):
         def __call__(self, *args, **kwargs):
@@ -19,8 +19,8 @@ def make_celery(app):
 
 app.config.update(
     CELERY_CONFIG={
-        "broker_url": "redis://prepare_4_redis:6379",
-        "result_backend": "redis://prepare_4_redis:6379",
+        "broker_url": "redis://todo_redis:6379",
+        "result_backend": "redis://todo_redis:6379",
     }
 )
 celery = make_celery(app)

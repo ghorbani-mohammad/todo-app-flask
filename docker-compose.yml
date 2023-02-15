@@ -19,7 +19,7 @@ services:
     build: .
     volumes:
       - .:/app
-    command: ["sh", "-c", "cd /app/app && celery -A celery_app.celery worker -l info"]
+    command: ["sh", "-c", "cd /app/todo && celery -A celery_app.celery worker -l info"]
     depends_on:
       - todo_api
       - todo_redis
