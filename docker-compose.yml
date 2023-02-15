@@ -1,6 +1,6 @@
 services:
-  prepare_4_flask:
-    container_name: prepare_4_flask
+  todo_api:
+    container_name: todo_api
     build: .
     command: ["sh", "-c", "cd /app/app && flask run --host=0.0.0.0"]
     volumes:
@@ -10,16 +10,16 @@ services:
     ports:
       - 5000:5000
 
-  prepare_4_redis:
-    container_name: prepare_4_redis
+  todo_redis:
+    container_name: todo_redis
     image: redis:7.0.4-alpine
   
-  prepare_4_worker:
-    container_name: prepare_4_worker
+  todo_worker:
+    container_name: todo_worker
     build: .
     volumes:
       - .:/app
     command: ["sh", "-c", "cd /app/app && celery -A celery_app.celery worker -l info"]
     depends_on:
-      - prepare_4_flask
-      - prepare_4_redis
+      - todo_api
+      - todo_redis
