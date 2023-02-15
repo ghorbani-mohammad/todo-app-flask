@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.6.1...v0.6.2) (2023-02-15)
+
+
+### Bug Fixes
+
+* Fix relative import ([3a16701](https://github.com/ghorbani-mohammad/todo-app-flask/commit/3a16701e01c1655f5b48d693d5e5e32191b178ce))
+
+
+
 ## [0.6.1](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.6.0...v0.6.1) (2023-02-15)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * celery ([137166b](https://github.com/ghorbani-mohammad/todo-app-flask/commit/137166b3e38f20fa02805cba1c1c1fdd1e39511e))
-
-
-
-# [0.4.0](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.3.1...v0.4.0) (2022-08-06)
-
-
-### Features
-
-* add celery worker ([6a18d46](https://github.com/ghorbani-mohammad/todo-app-flask/commit/6a18d461bd6558491a5411230f65d4fc0cb4b51b))
 
 
 
