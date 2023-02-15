@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.5.0...v0.6.0) (2023-02-15)
+
+
+### Features
+
+* Add deployment workflow ([b4b4b26](https://github.com/ghorbani-mohammad/todo-app-flask/commit/b4b4b26a0a80ee697726b114cc3d8f6e21e17adf))
+
+
+
 # [0.5.0](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.4.1...v0.5.0) (2023-02-15)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * docker run command ([def1b29](https://github.com/ghorbani-mohammad/todo-app-flask/commit/def1b2930ed640ee2675c34d105fdd9a25c53b99))
-
-
-
-# [0.3.0](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.2.0...v0.3.0) (2022-08-06)
-
-
-### Features
-
-* dockerize project ([1082caa](https://github.com/ghorbani-mohammad/todo-app-flask/commit/1082caa00f00a6b111e2e620809aa35c474aad10))
 
 
 
