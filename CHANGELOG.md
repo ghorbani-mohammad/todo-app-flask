@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.6.0...v0.6.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* change api container command ([ed41134](https://github.com/ghorbani-mohammad/todo-app-flask/commit/ed41134d736d727412e5e3692f5d81c55c0be358))
+
+
+
 # [0.6.0](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.5.0...v0.6.0) (2023-02-15)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add celery worker ([6a18d46](https://github.com/ghorbani-mohammad/todo-app-flask/commit/6a18d461bd6558491a5411230f65d4fc0cb4b51b))
-
-
-
-## [0.3.1](https://github.com/ghorbani-mohammad/todo-app-flask/compare/v0.3.0...v0.3.1) (2022-08-06)
-
-
-### Bug Fixes
-
-* docker run command ([def1b29](https://github.com/ghorbani-mohammad/todo-app-flask/commit/def1b2930ed640ee2675c34d105fdd9a25c53b99))
 
 
 
